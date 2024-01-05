@@ -12,6 +12,8 @@ Basic Features:
 - [x] Extensible API for multiple LLMs
 - [x] Extensible API for Multiple Remote(s) and also Local LLMs
 - [x] Automatic Heuristic based Text division
+- [ ] Support for Word Documents
+
 
 ## Installation
 
@@ -21,10 +23,19 @@ cd aipdf
 pip install -r requirements.txt
 ```
 
+## Setting up OpenRouter Backend
+
+Get an API key from [OpenRouter](https://openrouter.ai/)
+
+
+```bash
+python aipdf/secrets.py set <API_KEY>
+```
+
 ## Usage
 
 ```bash
-python aipdf.py --help
+python main.py --help
 ```
 
 ## Contributing
@@ -32,5 +43,7 @@ python aipdf.py --help
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
+
+Erdem Ugur Alici (erdemu) 2024
 
 MIT License

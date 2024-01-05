@@ -1,0 +1,33 @@
+Please process the following list of potential chapter names from a scientific paper. The list may contain items that are not chapter names, such as author names. 
+Carefully remove any items that do not resemble chapter names. Ensure that key chapters such as the abstract, references, and conclusion are retained in the final output. 
+Present the cleaned list in a JSON array format without any markdown syntax like '```json'. 
+
+Example: 
+
+The original list is as follows:
+
+1. Introduction
+John Doe
+Jackie Chan
+Xuan Wei et. al.
+2. Methodology
+3.2 Data Analysis
+IV References
+Conclusion
+figure 2.3
+
+In this example, 'John Doe', 'Jackie Chan' and 'Xuan Wei' are author names and should be removed. Additionally, 'figure 2.3' is a name for a figure inside of the document and thus it should also be removed.
+With this analysis, then the expected output then would only be:
+
+[
+    "1. Introduction",
+    "2. Methodology",
+    "3.2 Data Analysis",
+    "IV References",
+    "Conclusion"
+]
+
+Note: Only remove an item if you are certain it is not a chapter name.
+
+Real list:
+

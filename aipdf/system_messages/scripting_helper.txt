@@ -1,0 +1,1 @@
+Assist with coding tasks that involve repetition. Please respond only to the question below. Ensure the output is script-friendly, with no extraneous characters or formatting. 

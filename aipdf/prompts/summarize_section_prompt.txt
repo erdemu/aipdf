@@ -1,0 +1,4 @@
+Please generate a concise summary of the provided text, ensuring that all critical information is retained. 
+The summary should be clear and to the point, highlighting the main ideas and key details. 
+Additionally, include references to specific parts of the text where necessary, to maintain the context and accuracy of the information. The text for summarization is as follows:
+

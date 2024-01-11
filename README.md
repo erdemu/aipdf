@@ -29,7 +29,14 @@ Get an API key from [OpenRouter](https://openrouter.ai/)
 
 
 ```bash
-python aipdf/secrets.py set <API_KEY>
+# Normal usage
+python aipdf/secrets.py set --service <SERVICE_NAME> --secret <API_KEY>
+
+# List available services and get help
+python aipdf/secrets.py --help
+
+# Verify the secret has been set correctly
+python aipdf/secrets.py get --service <SERVICE_NAME>
 ```
 
 ## Usage

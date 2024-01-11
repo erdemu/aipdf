@@ -26,7 +26,7 @@ def get_secret(service: str) -> str:
     """
     secret = keyring.get_password(service, "api-key")
     if secret is None:
-        raise Exception("Secret not set")
+        raise Exception(f"Secret not set for service {service}")
     return secret
 
 
@@ -54,15 +54,20 @@ def set_secret(service: str, secret: str, force: bool) -> None:
     """
 
     # Check if the secret is already set
-    if get_secret(service) is None:
+    try:
+        _ = get_secret(service)
+    except Exception as e:
+        # If the secret is not set an error is raised
+        keyring.set_password(service, "api-key", secret)
+    else:
+        # If no error is raised that means the key is successfully set
+        # Check if force set
         if not force:
-            raise Exception("Secret already set, you can overrite with --force")
+            raise Exception("Secret already set, you can overrite the key with using --force option")
         else:
-            print("Secret already set, overwriting...")
-
-    # Set the secret
-    keyring.set_password(service, "api-key", secret)
-
+            print("Secret already set, overwriting due to --force ...")
+            keyring.set_password(service, "api-key", secret)
+    
 
 @app.command()
 def set(

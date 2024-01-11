@@ -55,12 +55,14 @@ def set_secret(service: str, secret: str, force: bool) -> None:
 
     # Check if the secret is already set
     try:
-        _ = get_secret(service)
+        get_secret(service)
     except Exception as e:
         # If the secret is not set an error is raised
         keyring.set_password(service, "api-key", secret)
     else:
-        # If no error is raised that means the key is successfully set
+        # If no error is raised that means the key is successfully get
+        # ie. the keystore already have another key for this exact service
+        # We can still override the existing key if the force is set
         # Check if force set
         if not force:
             raise Exception("Secret already set, you can overrite the key with using --force option")
